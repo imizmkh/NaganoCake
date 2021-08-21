@@ -1,2 +1,10 @@
-<h1>Admin::Products#show</h1>
-<p>Find me in app/views/admin/products/show.html.erb</p>
+<h3>商品詳細</h3>
+
+<div>
+  <%= attachment_image_tag @product, :image %>
+  <p>商品名：<%= @product.name %></p>
+  <p>商品説明：<%= @product.introduction %></p>
+  <p>税込価格(税抜価格)：<%= @product.price %></p>
+  <%= link_to '編集する', edit_admin_product_path(@product) %>
+
+</div>

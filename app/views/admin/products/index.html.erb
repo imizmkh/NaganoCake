@@ -13,10 +13,10 @@
   <tbody>
     <% @products.each do |products| %>
     <tr>
-      <td><%= product.id %></td>
-      <td><%= product.name %></td>
-      <td><%= product.price %></td>
-      <td></td>
+      <td><%= products.id %></td>
+      <td><%= link_to products.name, admin_product_path(products) %></td>
+      <td><%= products.price %></td>
+      <td><%= products.genre.name %></td>
       <td></td>
     </tr>
     <% end %>
