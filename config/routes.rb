@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  devise_for :customers
+  root to: 'homes#top'
+  get 'home/about' => 'homes#about'
+
   namespace :admin do
     resources :genres, only: [:index, :create, :edit, :update]
     resources :products
