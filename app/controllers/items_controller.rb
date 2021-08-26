@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   def index
-    @products = Product.order(created_at: :desc).limit(8)
+    @products = Product.all.page(params[:page]).per(8)
   end
 
   def show

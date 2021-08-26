@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
 
+  get "customers/my_page", to: 'customers#show'
+  get "customers/edit", to: 'customers#edit'
+
   devise_for :customers
   root to: 'homes#top'
-  get 'home/about' => 'homes#about'
+  get '/about' => 'homes#about'
+  get '/items' => 'items#index'
+  get '/items/:id' => 'items#show'
 
   namespace :admin do
     resources :genres, only: [:index, :create, :edit, :update]
