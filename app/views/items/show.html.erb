@@ -1,0 +1,6 @@
+<div>
+  <%= attachment_image_tag @product, :image %>
+  <p><%= @product.name %></p>
+  <p><%= @product.introduction %></p>
+  <p>￥<%= @product.add_tax_price.to_s(:delimited) %>円(税込)</p>
+</div>

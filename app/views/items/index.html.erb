@@ -1,11 +1,16 @@
 <h2>商品一覧</h2>
 
-<% @products.each do |products| %>
+<% @products.each do |product| %>
 <div>
-  <%= attachment_image_tag products, :image %></br>
-  <%= products.name %></br>
-  ￥<%= products.price %>
+  <p>
+    <%= link_to item_path(product.id) do %>
+      <%= attachment_image_tag product, :image, :fill, 500, 300 %>
+    <% end %></br>
+  </p>
+  <p><%= product.name %></br></p>
+  <p>￥<%= product.price %></p>
 </div>
 <% end %>
+
 
 <%= paginate @products %>
