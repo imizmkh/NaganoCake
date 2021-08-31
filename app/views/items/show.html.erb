@@ -4,3 +4,10 @@
   <p><%= @product.introduction %></p>
   <p>￥<%= @product.add_tax_price.to_s(:delimited) %>円(税込)</p>
 </div>
+
+<%= form_with model: @cart_item, local:true do |f| %>
+  <%= f.number_field :amount %>
+  <%= f.hidden_field :product_id, :value => @product.id %>
+  <%= f.submit 'カートに追加する' %>
+
+<% end %>

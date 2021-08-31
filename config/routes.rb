@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   get '/items' => 'items#index'
   get '/items/:id' => 'items#show'
 
+  resources :cart_items
+
 
   namespace :admin do
     resources :genres, only: [:index, :create, :edit, :update]
