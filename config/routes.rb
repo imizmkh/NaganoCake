@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
 
+  get 'orders/new'
+  get 'orders/index'
+  get 'orders/show'
   get 'customers/my_page', to: 'customers#show'
   get 'customers/edit', to: 'customers#edit'
   resources :customers, only: [:update]
@@ -16,7 +19,19 @@ Rails.application.routes.draw do
   get '/items' => 'items#index'
   get '/items/:id' => 'items#show'
 
-  resources :cart_items
+
+  resources :cart_items, only: [:index, :create, :update, :destroy] do
+    collection do
+      delete 'destroy_all'
+    end
+  end
+
+  get 'orders/info', to: 'orders#info'
+  get 'orders/thanks', to: 'orders#thanks'
+  resources :orders, only: [:new, :index, :show, :create]
+
+
+
 
 
   namespace :admin do
