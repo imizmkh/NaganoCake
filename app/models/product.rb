@@ -9,7 +9,7 @@ class Product < ApplicationRecord
   validates :price, presence: true
 
   def add_tax_price
-    (self.price*1.08).round
+    (price*1.1).floor
   end
 
 end

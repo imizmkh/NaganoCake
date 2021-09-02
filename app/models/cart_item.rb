@@ -3,11 +3,11 @@ class CartItem < ApplicationRecord
   belongs_to :product
 
   def add_tax_price
-    (self.price*1.08).round
+    (price*1.1).floor
   end
 
   def subtotal_price
-    product.price*1.08*amount
+    product.add_tax_price*amount
   end
 
 end

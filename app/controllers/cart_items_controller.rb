@@ -3,14 +3,22 @@ class CartItemsController < ApplicationController
   def index
     @cart_items = CartItem.all
     @customer = current_customer
-
+    @total_price = 0
+    @cart_items.each do |cart_item|
+      @total_price += cart_item.subtotal_price
+    end
   end
 
   def create
-    @customer = current_customer
     @cart_item = CartItem.new(cart_item_params)
-    @cart_item.save
-    redirect_to cart_items_path
+    @customer = current_customer
+    if cart_item = current_customer.cart_items.find_by(product_id: params[:cart_item][:product_id])
+      cart_item.amount += params[:cart_item][:amount].to_i
+      cart_item.save
+      redirect_to cart_items_path
+    else @cart_item.save
+      redirect_to cart_items_path
+    end
   end
 
   def update

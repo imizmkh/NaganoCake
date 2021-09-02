@@ -1,6 +1,6 @@
 class CustomersController < ApplicationController
   before_action :set_cart_item, only: [:add_item, :destroy]
-  before_action :set_user
+
 
 
   def show

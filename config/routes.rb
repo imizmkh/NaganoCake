@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
 
 
-  get 'orders/new'
-  get 'orders/index'
-  get 'orders/show'
   get 'customers/my_page', to: 'customers#show'
   get 'customers/edit', to: 'customers#edit'
   resources :customers, only: [:update]
