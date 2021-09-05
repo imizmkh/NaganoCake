@@ -27,9 +27,9 @@
           </td>
         <td><%= cart_item.subtotal_price %>円</td>
         <td><%= button_to "削除", cart_item_path(cart_item), method: :delete %></td>
-        <% @total_price += cart_item.subtotal_price %>
       </tr>
     <% end %>
+    <%= @total_price %>
   </tbody>
 </div>
 

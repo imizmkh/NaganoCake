@@ -23,9 +23,14 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'orders/info', to: 'orders#info'
+
   get 'orders/thanks', to: 'orders#thanks'
-  resources :orders, only: [:new, :index, :show, :create]
+
+  resources :orders, only: [:new, :index, :show, :create] do
+    collection do
+      post :info
+    end
+  end
 
 
 
