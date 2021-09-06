@@ -1,11 +1,47 @@
 <h2>注文情報確認</h2>
 
-
 <div>
-    <span>支払方法</span><%= @order.payment_method %>
+  <table>
+    <thead>
+      <tr>
+        <th>商品名</th>
+        <th>単価(税込)</th>
+        <th>数量</th>
+        <th>小計</th>
+      </tr>
+    </thead>
+  </table>
+  <tbody>
+    <% @cart_items.each do |cart_item| %>
+      <tr>
+        <td><%= attachment_image_tag cart_item.product, :image, :fill, 100, 50 %><%= cart_item.product.name %></td>
+        <td><%= cart_item.product.add_tax_price %></td>
+        <td><%= cart_item.amount %></td>
+        <td><%= cart_item.subtotal_price %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </div>
 
 <div>
-    <span>お届け先</span><%= @order.postal_code %><%= @order.address %></br>
+  <table>
+      <thead>
+          <tr>
+              <th>送料</th><td>800</td>
+              <th>商品合計</th><td><%= @total_price %></td>
+              <th>請求金額</th><td><%= @total_price + 800 %></td>
+          </tr>
+      </thead>
+  </table>
+</div>
+
+<div>
+    <span>支払方法</span><%= @order.payment_method_i18n %>
+</div>
+
+<div>
+    <span>お届け先</span><%= 〒@order.postal_code %>　<%= @order.address %></br>
     <%= @order.name %>
 </div>
+
+<%= button_to "注文を確定する", orders_path, method: :post %>
