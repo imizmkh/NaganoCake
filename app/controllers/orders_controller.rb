@@ -29,8 +29,9 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new
+    @order = Order.new(order_params)
     @cart_items = CartItem.all
+    @order.save
     @cart_items.each do |cart_item|
       @order_details = OrderDetail.new
       @order_details.order_id = @order.id
@@ -39,7 +40,6 @@ class OrdersController < ApplicationController
       @order_details.amount = cart_item.amount
     @order_details.save
     end
-    @order.save
     @cart_items.destroy_all
     redirect_to orders_thanks_path
   end
@@ -50,11 +50,12 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @order = Order.find(params[:id])
   end
 
   private
 
   def order_params
-    params.require(:order).permit(:payment_method, :postal_code, :address, :name)
+    params.require(:order).permit(:payment_method, :postal_code, :address, :name, :total_payment)
   end
 end
