@@ -9,7 +9,7 @@
 
 <% @products.each do |products| %>
 <div>
-  <%= attachment_image_tag products, :image %></br>
+  <%= attachment_image_tag products, :image, :fill, 100, 50 %></br>
   <%= products.name %></br>
   ￥<%= products.price %>
 </div>
