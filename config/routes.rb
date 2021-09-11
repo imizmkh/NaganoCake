@@ -11,11 +11,19 @@ Rails.application.routes.draw do
     post '/customers', to: 'customers/registrations#create'
   end
 
-  devise_for :admins, controllers: {
-    sessions: 'admins/sessions',
-    passwords: 'admins/passwords',
-    registrations: 'admins/registrations'
+  devise_for :admin, controllers: {
+    sessions: 'admin/sessions',
+    passwords: 'admin/passwords',
+    registrations: 'admin/registrations'
   }
+
+
+  root to: 'public/homes#top'
+  get '/about' => 'public/homes#about'
+  get '/items' => 'public/items#index'
+  get '/items/:id', to: 'public/items#show', as: 'item'
+
+scope module: :public do
   get 'customers/my_page', to: 'customers#show'
   get 'customers/edit', to: 'customers#edit'
   patch 'customers/withdraw', to: 'customers#withdraw'
@@ -23,13 +31,6 @@ Rails.application.routes.draw do
   get 'customers/quit', to: 'customers#quit'
 
   resources :addresses
-  resources :items, only: [:index, :show]
-
-  root to: 'homes#top'
-  get '/about' => 'homes#about'
-  get '/items' => 'items#index'
-  get '/items/:id' => 'items#show'
-
 
   resources :cart_items, only: [:index, :create, :update, :destroy] do
     collection do
@@ -46,14 +47,14 @@ Rails.application.routes.draw do
     end
   end
 
-
-
-
+ end
 
   namespace :admin do
     resources :genres, only: [:index, :create, :edit, :update]
     resources :products
     resources :customers, only: [:index, :edit, :show, :update]
+    resources :orders, only: [:show]
+    get '/' => 'homes#top'
 
   end
 

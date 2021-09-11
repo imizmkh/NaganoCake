@@ -12,3 +12,5 @@ end
   def subtotal_price
     product.add_tax_price*amount
   end
+
+  

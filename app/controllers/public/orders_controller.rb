@@ -1,4 +1,4 @@
-class OrdersController < ApplicationController
+class Public::OrdersController < ApplicationController
 
   def new
     @order = Order.new
@@ -30,6 +30,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
+    @order.customer_id = current_customer.id
     @cart_items = CartItem.all
     @order.save
     @cart_items.each do |cart_item|

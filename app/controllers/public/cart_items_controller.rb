@@ -1,4 +1,5 @@
-class CartItemsController < ApplicationController
+class Public::CartItemsController < ApplicationController
+  before_action :move_to_signed_in
 
   def index
     @cart_items = CartItem.all
@@ -50,4 +51,11 @@ class CartItemsController < ApplicationController
     params.require(:cart_item).permit(:amount)
   end
 
+ private
+
+  def move_to_signed_in
+    unless customer_signed_in?
+      redirect_to '/', notice: 'ログインしてください'
+    end
+  end
 end

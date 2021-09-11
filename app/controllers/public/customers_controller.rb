@@ -1,4 +1,4 @@
-class CustomersController < ApplicationController
+class Public::CustomersController < ApplicationController
   before_action :set_cart_item, only: [:add_item, :destroy]
 
 

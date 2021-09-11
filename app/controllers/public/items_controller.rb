@@ -1,4 +1,4 @@
-class ItemsController < ApplicationController
+class Public::ItemsController < ApplicationController
 
   def index
     @products = Product.all.page(params[:page]).per(8)
