@@ -1,13 +1,23 @@
-<h2>配送先編集</h2>
-<%= form_with model: @address, url: address_path, local:true do |f| %>
-  <label for="PostalCode">郵便番号(ハイフンなし)</label>
-  <%= f.text_field :postal_code, autofocus: true, id:"PostalCode" %>
-
-  <label for="Address">住所</label>
-  <%= f.text_field :address, autofocus: true, id:"Address" %>
-
-  <label for="Name">宛名</label>
-  <%= f.text_field :name, autofocus: true, id:"Name" %>
-
-  <%= f.submit "変更内容を保存" %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <h4 class="bg-light">配送先登録/一覧</h4>
+  </div>
+  <div class="row">
+    <%= form_with model: @address, url: address_path, local:true do |f| %>
+    <table>
+      <tr>
+        <th><%= f.label :postal_code, "郵便番号(ハイフンなし)" %></th>
+        <td><%= f.text_field :postal_code %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :address, "住所" %></th>
+        <td><%= f.text_field :address %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :name, "宛名" %></th>
+        <td><%= f.text_field :name %></td>
+        <td><%= f.submit '変更を保存', class: "btn btn-sm btn-success" %></td>
+      </tr>
+    </table>
+    <% end %>
+  </div>

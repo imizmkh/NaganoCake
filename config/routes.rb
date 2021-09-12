@@ -1,15 +1,13 @@
 Rails.application.routes.draw do
 
+  root to: 'public/homes#top'
 
-  devise_for :customers, skip: 'registrations', controllers: {
-    sessions: 'customers/sessions',
-    passwords: 'customers/passwords',
-    #registrations: 'customers/registrations'
+  devise_for :customers, controllers: {
+    sessions: 'public/customers/sessions',
+    passwords: 'public/customers/passwords',
+    registrations: 'public/customers/registrations'
   }
-  devise_scope :customers do
-    get '/customers/sign_up', to: 'customers/registrations#new', as: :new_customer_registration
-    post '/customers', to: 'customers/registrations#create'
-  end
+
 
   devise_for :admin, controllers: {
     sessions: 'admin/sessions',
@@ -18,7 +16,7 @@ Rails.application.routes.draw do
   }
 
 
-  root to: 'public/homes#top'
+
   get '/about' => 'public/homes#about'
   get '/items' => 'public/items#index'
   get '/items/:id', to: 'public/items#show', as: 'item'

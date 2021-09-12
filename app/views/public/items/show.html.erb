@@ -1,13 +1,21 @@
-<div>
-  <%= attachment_image_tag @product, :image %>
-  <p><%= @product.name %></p>
-  <p><%= @product.introduction %></p>
-  <p>￥<%= @product.add_tax_price.to_s(:delimited) %>円(税込)</p>
+<div class="container">
+  <div class="row">
+    <dvi class="col-5">
+      <%= attachment_image_tag @product, :image, :fill, 300, 200  %>
+    </dvi>
+    <div class="col-7">
+      <h2 class="text-left"><%= @product.name %></h2>
+      <p class="text-left"><%= @product.introduction %></p>
+      <p class="font-size 5">￥<%= @product.add_tax_price.to_s(:delimited) %>円(税込)</h2>
+      <%= form_with model: @cart_item, local:true do |f| %>
+        <%= f.number_field :amount %>
+        <%= f.hidden_field :product_id, :value => @product.id %>
+        <%= f.submit 'カートに追加する', class:"btn btn-success" %>
+      <% end %>
+
+
+    </div>
+  </div>
 </div>
 
-<%= form_with model: @cart_item, local:true do |f| %>
-  <%= f.number_field :amount %>
-  <%= f.hidden_field :product_id, :value => @product.id %>
-  <%= f.submit 'カートに追加する' %>
 
-<% end %>
