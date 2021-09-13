@@ -1,4 +1,5 @@
 <div class="container">
+  <h4 class="bg-light">商品詳細</h4>
   <div class="row">
     <dvi class="col-5">
       <%= attachment_image_tag @product, :image, :fill, 300, 200  %>
@@ -18,31 +19,11 @@
           <td><%= @product.genre.name %></td>
         </tr>
         <tr>
-          <th>税込価格(税抜価格)</th>
-          <td><%= @product.add_tax_price.to_s(:delimited) %>(<%= @product.price %></td>
+          <th>税込価格</br>(税抜価格)</th>
+          <td><%= @product.add_tax_price.to_s(:delimited) %>(<%= @product.price %>)</td>
         </tr>
       </table>
-      <h2 class="text-left"></h2>
-      <p class="text-left"></p>
-      <p class="font-size 5">￥<%= @product.add_tax_price.to_s(:delimited) %>円(税込)</h2>
-      <%= form_with model: @cart_item, local:true do |f| %>
-        <%= f.number_field :amount %>
-        <%= f.hidden_field :product_id, :value => @product.id %>
-        <%= f.submit 'カートに追加する', class:"btn btn-success" %>
-      <% end %>
-
-
+      <%= link_to '編集する', edit_admin_product_path(@product), class: "btn btn-success" %>
     </div>
   </div>
-</div>
-
-<h3>商品詳細</h3>
-
-<div>
-  <%= attachment_image_tag @product, :image %>
-  <p>商品名：<%= @product.name %></p>
-  <p>商品説明：<%= @product.introduction %></p>
-  <p>税込価格(税抜価格)：<%= @product.price %></p>
-  <%= link_to '編集する', edit_admin_product_path(@product) %>
-
 </div>
