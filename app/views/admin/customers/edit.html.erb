@@ -7,7 +7,7 @@
       <tr>
         <th>会員ID</th><td><%= @customer.id %></td>
       </tr>
-      <%= form_with model: @customer, url: customer_session_path, local:true do |f| %>
+      <%= form_with model: @customer, url: admin_customer_path, local:true do |f| %>
       <tr>
         <th><%= f.label :name, "氏名" %></th>
         <td>  <%= f.text_field :last_name, autofocus: true %> <%= f.text_field :first_name, autofocus: true %></td>
@@ -44,6 +44,7 @@
       <tr>
         <th></th>
         <td>
+          <%= f.hidden_field :id %>
           <%= f.submit "編集内容を保存", class: "btn btn-sm btn-success" %>
         </td>
       </tr>

@@ -49,7 +49,7 @@ scope module: :public do
 
   namespace :admin do
     resources :genres, only: [:index, :create, :edit, :update]
-    resources :products
+    resources :products, only: [:edit, :index, :new, :show, :create, :update]
     resources :customers, only: [:index, :edit, :show, :update]
     resources :orders, only: [:show]
     get '/' => 'homes#top'

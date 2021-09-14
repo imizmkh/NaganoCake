@@ -1,7 +1,9 @@
 <div class="container">
   <div class="row">
     <h4 class="bg-light">商品一覧</h4>
-    <div class="col align-right"><%= button_to "+", new_admin_product_path, class: "btn btn-secondary rounded-circle " %></div>
+    <div class="col align-right">
+      <%= link_to '+', new_admin_product_path, class: "btn btn-secondary rounded-circle" %>
+    </div>
 
     <table class="table table-bordered">
       <thead class="bg-light">

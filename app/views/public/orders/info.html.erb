@@ -6,13 +6,13 @@
     <div class="col-7">
     <h6>注文情報</h6>
       <table class="table table-bordered">
-        <% @cart_items.each do |cart_item| %>
         <tr>
            <th class="bg-light">商品名</th>
            <th class="bg-light">単価(税込)</th>
            <th class="bg-light">数量</th>
            <th class="bg-light">小計</th>
         </tr>
+        <% @cart_items.each do |cart_item| %>
         <tr>
           <td><%= attachment_image_tag cart_item.product, :image, :fill, 100, 50 %><%= cart_item.product.name %></td>
           <td><%= cart_item.product.add_tax_price %></td>

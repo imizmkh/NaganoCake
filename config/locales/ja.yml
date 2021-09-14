@@ -4,10 +4,3 @@ ja:
       payment_method:
         credit_card: 'クレジットカード'
         transfer: '銀行振込'
-
-ja:
-  admin:
-    customer:
-      is_active:
-        true: '有効'
-        false: '無効'
