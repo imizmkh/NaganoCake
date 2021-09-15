@@ -18,7 +18,7 @@
               <%= order.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
           　<% end %>
           </td>
-          <td><%= order.name %></td>
+          <td><%= order.customer.last_name %> <%= order.customer.first_name %></td>
           <td>
             <% order.order_details.each do |order_detail| %>
               <%= order_detail.product.name %>

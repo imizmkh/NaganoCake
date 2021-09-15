@@ -2,26 +2,7 @@ Rails.application.routes.draw do
 
   root to: 'public/homes#top'
 
-  devise_for :customers, controllers: {
-    sessions: 'public/customers/sessions',
-    passwords: 'public/customers/passwords',
-    registrations: 'public/customers/registrations'
-  }
-
-
-  devise_for :admin, controllers: {
-    sessions: 'admin/sessions',
-    passwords: 'admin/passwords',
-    registrations: 'admin/registrations'
-  }
-
-
-
-  get '/about' => 'public/homes#about'
-  get '/items' => 'public/items#index'
-  get '/items/:id', to: 'public/items#show', as: 'item'
-
-scope module: :public do
+  scope module: :public do
   get 'customers/my_page', to: 'customers#show'
   get 'customers/edit', to: 'customers#edit'
   patch 'customers/withdraw', to: 'customers#withdraw'
@@ -46,6 +27,27 @@ scope module: :public do
   end
 
  end
+
+  devise_for :customers, controllers: {
+    sessions: 'public/customers/sessions',
+    passwords: 'public/customers/passwords',
+    registrations: 'public/customers/registrations'
+  }
+
+
+  devise_for :admin, controllers: {
+    sessions: 'admin/sessions',
+    passwords: 'admin/passwords',
+    registrations: 'admin/registrations'
+  }
+
+
+
+  get '/about' => 'public/homes#about'
+  get '/items' => 'public/items#index'
+  get '/items/:id', to: 'public/items#show', as: 'item'
+
+
 
   namespace :admin do
     resources :genres, only: [:index, :create, :edit, :update]

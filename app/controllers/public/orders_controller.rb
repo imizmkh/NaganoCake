@@ -12,6 +12,7 @@ class Public::OrdersController < ApplicationController
       @total_price += cart_item.subtotal_price
     end
     @order = Order.new(order_params)
+    @order.total_payment = @total_price + 800
     if params[:order][:select_address] == "0"
       @order.postal_code = current_customer.postal_code
       @order.address = current_customer.address
