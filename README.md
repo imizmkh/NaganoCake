@@ -1,24 +1,46 @@
-# README
+# 長野ケーキ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Requirement
 
-Things you may want to cover:
 
-* Ruby version
+* huga 3.5.2
+* hogehuga 1.0.2
 
-* System dependencies
+# Installation
 
-* Configuration
+Requirementで列挙したライブラリなどのインストール方法を説明する
 
-* Database creation
+```bash
+pip install huga_package
+```
 
-* Database initialization
+# Usage
 
-* How to run the test suite
+DEMOの実行方法など、"hoge"の基本的な使い方を説明する
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+git clone https://github.com/hoge/~
+cd examples
+python demo.py
+```
 
-* Deployment instructions
+# Note
 
-* ...
+注意点などがあれば書く
+
+# Author
+
+作成情報を列挙する
+
+* 作成者
+* 所属
+* E-mail
+
+# License
+ライセンスを明示する
+
+"hoge" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
+
+社内向けなら社外秘であることを明示してる
+
+"hoge" is Confidential.
