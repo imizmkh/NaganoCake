@@ -1,46 +1,15 @@
 # 長野ケーキ
 
-# Requirement
+# Ruby on Rails バージョン
+Rails 5.2.6
 
+# 実施した機能(管理者側)
+商品追加機能
+会員管理機能
+注文履歴機能　など
 
-* huga 3.5.2
-* hogehuga 1.0.2
-
-# Installation
-
-Requirementで列挙したライブラリなどのインストール方法を説明する
-
-```bash
-pip install huga_package
-```
-
-# Usage
-
-DEMOの実行方法など、"hoge"の基本的な使い方を説明する
-
-```bash
-git clone https://github.com/hoge/~
-cd examples
-python demo.py
-```
-
-# Note
-
-注意点などがあれば書く
-
-# Author
-
-作成情報を列挙する
-
-* 作成者
-* 所属
-* E-mail
-
-# License
-ライセンスを明示する
-
-"hoge" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
-
-社内向けなら社外秘であることを明示してる
-
-"hoge" is Confidential.
+# 実施した機能(消費者側)
+商品閲覧機能
+カート機能
+配達先登録機能
+注文機能　など
